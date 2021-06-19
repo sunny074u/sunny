@@ -1,0 +1,271 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureMySqlSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Event_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Event_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Order_ID",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "Order_ID",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Date",
+									"type": "DateTime",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "Date",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Venue_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Venue_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Venue_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Gross_Revenue_USD",
+									"type": "Single",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "Gross_Revenue_USD",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Ticket_Revenue_USD",
+									"type": "Single",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "Ticket_Revenue_USD",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Eventbrite_Fees_USD",
+									"type": "Single",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "Eventbrite_Fees_USD",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Eventbrite_PP_USD",
+									"type": "Single",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "Eventbrite_PP_USD",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Tickets",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Tickets",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Types",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Types",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Status",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Status",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Distribution_Partner",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Distribution_Partner",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Delivery_Method",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Delivery_Method",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Transaction_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Transaction_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "First_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "First_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Last_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Last_Name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Email_Address",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "Email_Address",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureMySqlTable1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-06-19T20:54:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

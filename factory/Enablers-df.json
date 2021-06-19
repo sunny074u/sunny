@@ -1,0 +1,9 @@
+{
+	"name": "Enablers-df",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "91d2a1a9-c9eb-4008-bad5-f213e4db5f14",
+		"tenantId": "9511cbf1-667c-419c-be5a-7f61d032b106"
+	}
+}
